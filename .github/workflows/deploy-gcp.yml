@@ -13,8 +13,8 @@ on:
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   REGION: ${{ secrets.GCP_ARTIFACT_REGION }}
+  REPOSITORY: ${{ secrets.GCP_ARTIFACT_REPOSITORY }}
   IMAGE_NAME: baddummy_homepage
-  REGISTRY: gcr.io
 
 jobs:
   build-and-push:
@@ -41,7 +41,7 @@ jobs:
 
       - name: Configure Docker to use gcloud as credential helper
         run: |
-          gcloud auth configure-docker gcr.io
+          gcloud auth configure-docker ${{ secrets.GCP_ARTIFACT_REGION }}-docker.pkg.dev
 
       - name: Generate image tags
         id: meta
@@ -52,17 +52,21 @@ jobs:
           # Branch name
           BRANCH=${GITHUB_REF#refs/heads/}
 
+          # Construct registry URL
+          REGISTRY="${{ env.REGION }}-docker.pkg.dev"
+
           # Tags
-          TAGS="${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:${SHORT_SHA}"
-          TAGS="${TAGS},${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:${BRANCH}"
+          TAGS="${REGISTRY}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE_NAME }}:${SHORT_SHA}"
+          TAGS="${TAGS},${REGISTRY}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE_NAME }}:${BRANCH}"
 
           # Add 'latest' tag for main branch
           if [ "$BRANCH" = "main" ]; then
-            TAGS="${TAGS},${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:latest"
+            TAGS="${TAGS},${REGISTRY}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE_NAME }}:latest"
           fi
 
           echo "tags=${TAGS}" >> $GITHUB_OUTPUT
           echo "short_sha=${SHORT_SHA}" >> $GITHUB_OUTPUT
+          echo "registry=${REGISTRY}" >> $GITHUB_OUTPUT
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
@@ -84,7 +88,7 @@ jobs:
         run: |
           echo "## 🐳 Docker Image Published" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Registry:** \`gcr.io/${{ env.PROJECT_ID }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Registry:** \`${{ steps.meta.outputs.registry }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}\`" >> $GITHUB_STEP_SUMMARY
           echo "**Image:** \`${{ env.IMAGE_NAME }}\`" >> $GITHUB_STEP_SUMMARY
           echo "**Commit:** \`${{ steps.meta.outputs.short_sha }}\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
