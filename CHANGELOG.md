@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/RTabary/landing-page/compare/v1.0.2...v1.0.3) (2026-02-12)
+
+### 🐛 Bug Fixes
+
+* use registry ([9d5be4c](https://github.com/RTabary/landing-page/commit/9d5be4c7851dd6b5b5b85698822377c292e4256d))
+
 ## [1.0.2](https://github.com/RTabary/landing-page/compare/v1.0.1...v1.0.2) (2026-02-12)
 
 ### 🐛 Bug Fixes
