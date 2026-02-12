@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/RTabary/landing-page/compare/v1.0.1...v1.0.2) (2026-02-12)
+
+### 🐛 Bug Fixes
+
+* force some update to trigger deploy ([b8a5f8c](https://github.com/RTabary/landing-page/commit/b8a5f8cc6f0886ed2269560bbe58e329eeb39032))
+
 ## [1.0.1](https://github.com/RTabary/landing-page/compare/v1.0.0...v1.0.1) (2026-02-12)
 
 ### 🐛 Bug Fixes
