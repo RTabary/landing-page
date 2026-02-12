@@ -151,7 +151,7 @@ jobs:
       - name: Configure Docker to use gcloud as credential helper
         run: |
           # Pour Artifact Registry (recommandé):
-          gcloud auth configure-docker europe-west1-docker.pkg.dev
+          gcloud auth configure-docker ${{ secrets.GCP_ARTIFACT_REGION }}-docker.pkg.dev
           # Pour Container Registry (legacy):
           # gcloud auth configure-docker gcr.io
 
@@ -161,10 +161,11 @@ jobs:
           VERSION="${{ needs.release.outputs.new_release_version }}"
           PROJECT_ID="${{ secrets.GCP_PROJECT_ID }}"
           GCP_ARTIFACT_REPOSITORY="${{ secrets.GCP_ARTIFACT_REPOSITORY }}"
+          GCP_ARTIFACT_REGION="${{ secrets.GCP_ARTIFACT_REGION }}"
           IMAGE_NAME="baddummy_homepage"
 
           # Pour Artifact Registry (recommandé - repository doit exister):
-          REGISTRY="europe-west1-docker.pkg.dev"
+          REGISTRY="${GCP_ARTIFACT_REGION}-docker.pkg.dev"
           # Pour Container Registry (legacy):
           # REGISTRY="gcr.io"
 
