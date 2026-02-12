@@ -17,7 +17,7 @@ Site vitrine moderne avec landing page et CV interactif, développé en React av
   - Releases automatiques avec semantic versioning
   - Build et push sur Google Container Registry
   - Conventional commits pour les versions
-- **Hosting** : GCP Container Registry → [À configurer]
+- **Hosting** : GCP Container Registry
 
 ## 📂 Structure
 
