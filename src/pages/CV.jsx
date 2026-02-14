@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 
-function CV() {
+function CV({ audience }) {
   const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
@@ -148,6 +149,10 @@ function CV() {
     { name: 'Français', level: 'Natif' },
     { name: 'Anglais', level: 'B2 - Indépendant' }
   ]
+
+  if (audience === 'business') {
+    return <Navigate to="/" replace />
+  }
 
   return (
     <div className="cv-page">

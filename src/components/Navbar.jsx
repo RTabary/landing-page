@@ -70,8 +70,9 @@ function Navbar({ audience, onAudienceChange }) {
           ) : (
             <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Accueil</Link></li>
           )}
-          
-          <li><Link to="/cv" onClick={() => setIsMenuOpen(false)}>CV</Link></li>
+          {currentAudience !== 'business' && (
+            <li><Link to="/cv" onClick={() => setIsMenuOpen(false)}>CV</Link></li>
+          )}
         </ul>
       </div>
     </nav>
