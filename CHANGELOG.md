@@ -1,3 +1,15 @@
+## [1.1.0](https://github.com/RTabary/landing-page/compare/v1.0.3...v1.1.0) (2026-02-14)
+
+### ✨ Features
+
+* add burger menu ([b23fad2](https://github.com/RTabary/landing-page/commit/b23fad221a15cd79176a3a83e1ee0eaaa811842e))
+* add entrypoint to define client type ([3c927c0](https://github.com/RTabary/landing-page/commit/3c927c07b34641b5f065c73eafdb1614e83209c7))
+* user can switch public type ([a1a00db](https://github.com/RTabary/landing-page/commit/a1a00db39805f1be930c22f010dca0da0bc39d7a))
+
+### 💎 Styles
+
+* more conventional styles ([baf24b4](https://github.com/RTabary/landing-page/commit/baf24b4531720892d5e616d22c240220daec18dc))
+
 ## [1.0.3](https://github.com/RTabary/landing-page/compare/v1.0.2...v1.0.3) (2026-02-12)
 
 ### 🐛 Bug Fixes
