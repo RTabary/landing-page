@@ -1,10 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 
-function Navbar() {
+function Navbar({ audience, onAudienceChange }) {
   const location = useLocation()
   const isHome = location.pathname === '/'
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const currentAudience = audience ?? 'tech'
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -18,12 +19,34 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const handleAudienceSwitch = (targetAudience) => {
+    if (onAudienceChange && targetAudience !== currentAudience) {
+      onAudienceChange(targetAudience)
+    }
+    setIsMenuOpen(false)
+  }
+
   return (
     <nav>
       <div className="container">
-        <Link to="/" className="logo">
-          ⌂
-        </Link>
+        <div className="audience-toggle-group" role="group" aria-label="Choisir un profil">
+              <button
+                type="button"
+                className={`audience-toggle-option ${currentAudience === 'tech' ? 'active' : ''}`}
+                aria-pressed={currentAudience === 'tech'}
+                onClick={() => handleAudienceSwitch('tech')}
+              >
+                Tech
+              </button>
+              <button
+                type="button"
+                className={`audience-toggle-option ${currentAudience === 'business' ? 'active' : ''}`}
+                aria-pressed={currentAudience === 'business'}
+                onClick={() => handleAudienceSwitch('business')}
+              >
+                Business
+              </button>
+            </div>
 
         <button
           className={`burger-menu ${isMenuOpen ? 'active' : ''}`}
@@ -46,6 +69,7 @@ function Navbar() {
           ) : (
             <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Accueil</Link></li>
           )}
+          
           <li><Link to="/cv" onClick={() => setIsMenuOpen(false)}>CV</Link></li>
         </ul>
       </div>

@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar audience={audience} onAudienceChange={handleSelectAudience} />
       <Routes>
         <Route path="/" element={<Home audience={audience} />} />
         <Route path="/cv" element={<CV audience={audience} />} />

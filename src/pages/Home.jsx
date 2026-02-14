@@ -34,7 +34,7 @@ function Home({ audience }) {
     })
 
     return () => observer.disconnect()
-  }, [])
+  }, [audience])
 
   // Afficher la version business si l'audience est "business"
   const isBusiness = audience === 'business'
