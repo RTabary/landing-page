@@ -1,3 +1,9 @@
+## [1.1.3](https://github.com/RTabary/landing-page/compare/v1.1.2...v1.1.3) (2026-02-14)
+
+### 🐛 Bug Fixes
+
+* does not show CV dowload link for business users ([f53d196](https://github.com/RTabary/landing-page/commit/f53d1965b41c0ee27e7532165a5c33c266529e3a))
+
 ## [1.1.2](https://github.com/RTabary/landing-page/compare/v1.1.1...v1.1.2) (2026-02-14)
 
 ### 🐛 Bug Fixes
