@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/RTabary/landing-page/compare/v1.1.0...v1.1.1) (2026-02-14)
+
+### 🐛 Bug Fixes
+
+* force scroll to the top of the page when switching profile ([4180a87](https://github.com/RTabary/landing-page/commit/4180a87200e3f533fa442535274be470cee1e384))
+
 ## [1.1.0](https://github.com/RTabary/landing-page/compare/v1.0.3...v1.1.0) (2026-02-14)
 
 ### ✨ Features
