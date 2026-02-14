@@ -22,6 +22,7 @@ function Navbar({ audience, onAudienceChange }) {
   const handleAudienceSwitch = (targetAudience) => {
     if (onAudienceChange && targetAudience !== currentAudience) {
       onAudienceChange(targetAudience)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
     setIsMenuOpen(false)
   }
