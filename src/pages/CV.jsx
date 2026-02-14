@@ -169,9 +169,6 @@ function CV() {
             <span>🏢 TARS SASU • SIRET: 904 527 868 00023</span>
           </div>
         </div>
-        <div className="cv-hero-bg" style={{ transform: `translateY(${scrollY * 0.2}px)` }}>
-          🐰
-        </div>
       </section>
 
       {/* Synthèse du profil */}

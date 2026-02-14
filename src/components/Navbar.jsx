@@ -14,9 +14,6 @@ function Navbar() {
   return (
     <nav>
       <div className="container">
-        <Link to="/" className="logo">
-          <span className="bunny">🐰</span> baddummy
-        </Link>
         <ul>
           {isHome ? (
             <>
