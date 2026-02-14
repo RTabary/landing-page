@@ -1,3 +1,9 @@
+## [1.1.2](https://github.com/RTabary/landing-page/compare/v1.1.1...v1.1.2) (2026-02-14)
+
+### 🐛 Bug Fixes
+
+* hide CV when business user selected ([5a75a30](https://github.com/RTabary/landing-page/commit/5a75a30f9617b0abc44e27236b8e7c1b5f006b04))
+
 ## [1.1.1](https://github.com/RTabary/landing-page/compare/v1.1.0...v1.1.1) (2026-02-14)
 
 ### 🐛 Bug Fixes
