@@ -5,7 +5,14 @@ import Skills from '../components/Skills'
 import Projects from '../components/Projects'
 import Contact from '../components/Contact'
 
-function Home() {
+// Composants Business
+import HeroBusiness from '../components/business/HeroBusiness'
+import AboutBusiness from '../components/business/AboutBusiness'
+import SkillsBusiness from '../components/business/SkillsBusiness'
+import ProjectsBusiness from '../components/business/ProjectsBusiness'
+import ContactBusiness from '../components/business/ContactBusiness'
+
+function Home({ audience }) {
   useEffect(() => {
     // Intersection Observer for scroll animations
     const observerOptions = {
@@ -29,13 +36,16 @@ function Home() {
     return () => observer.disconnect()
   }, [])
 
+  // Afficher la version business si l'audience est "business"
+  const isBusiness = audience === 'business'
+
   return (
     <>
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
+      {isBusiness ? <HeroBusiness /> : <Hero />}
+      {isBusiness ? <AboutBusiness /> : <About />}
+      {isBusiness ? <SkillsBusiness /> : <Skills />}
+      {isBusiness ? <ProjectsBusiness /> : <Projects />}
+      {isBusiness ? <ContactBusiness /> : <Contact />}
     </>
   )
 }
