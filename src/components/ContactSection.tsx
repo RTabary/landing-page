@@ -5,6 +5,7 @@ type ContactSectionProps = {
 	title: string;
 	intro: string;
 	strokeColor?: string;
+	showCvDownload?: boolean;
 };
 
 export function ContactSection({
@@ -12,6 +13,7 @@ export function ContactSection({
 	title,
 	intro,
 	strokeColor = "#5B7FFF",
+	showCvDownload = true,
 }: Readonly<ContactSectionProps>) {
 	return (
 		<section id={sectionId}>
@@ -106,7 +108,7 @@ export function ContactSection({
 							SIRET: 904 527 868 00023
 						</p>
 					</div>
-					<SocialLinks />
+					<SocialLinks showCvDownload={showCvDownload} />
 				</div>
 			</div>
 		</section>
